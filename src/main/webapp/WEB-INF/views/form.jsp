@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +13,7 @@
     <style>
         body {
             background: linear-gradient(to right, #a1c4fd, #c2e9fb);
-            min-height: 90vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -47,12 +47,20 @@
             font-size: 1.1rem;
             padding: 8px;
         }
+        #city{
+           margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
 
 <div class="form-container">
     <div class="form-title">Student Registration</div>
+    
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <form:errors path="student.*"/>
+ 
+</div>
 
     <!-- Update action URL if submitting to Spring Controller -->
     <form action="handleform" method="post">
@@ -73,7 +81,7 @@
 
         <div class="mb-3">
           <label class="form-label">Course</label>
-           <select class="form-select" name="course" required>
+           <select class="form-select" name="course"  multiple  required>
             <option value="">Select Course</option>
             <option value="MCA">MCA</option>
             <option value="B.Tech">B.Tech</option>
@@ -103,6 +111,19 @@
                 <option value="Old">Old Student</option>
                 <option value="New">New Student</option>
             </select>
+        </div>
+        
+        <div class="card" id="city">
+            <div class="card-body">
+            
+              <p>Your Address</p>
+              <div class="form-group mb-2" >
+                  <input type="text" class="form-control" name="address.street" placeHolder="Enter street" />
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" name="address.city" placeHolder="Enter city" />
+              </div>
+            </div>
         </div>
 
         <button type="submit" class="btn btn-primary btn-submit">Submit</button>

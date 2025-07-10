@@ -5,15 +5,20 @@ import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import searchmvc.Address;
+
 public class Student {
 
 	private String name;
 	private Long studentId;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dob;
-	private List<String> course;
+	private String course;
 	private String gender;
 	private String studentType;
+	
+	private Address address = new Address();
+	
 	
 	//setter and getter
 	public String getName() {
@@ -34,10 +39,10 @@ public class Student {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-	public List<String> getCourse() {
+	public String getCourse() {
 		return course;
 	}
-	public void setCourse(List<String> course) {
+	public void setCourse(String course) {
 		this.course = course;
 	}
 	public String getGender() {
@@ -52,13 +57,21 @@ public class Student {
 	public void setStudentType(String studentType) {
 		this.studentType = studentType;
 	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
 	
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", studentId=" + studentId + ", dob=" + dob + ", course=" + course + ", gender="
-				+ gender + ", studentType=" + studentType + "]";
+		return "Student [name=" + name + ", studentId=" + studentId + ", dob=" + dob + ", course=" + course
+				+ ", gender=" + gender + ", studentType=" + studentType + ", address=" + address + "]";
 	}
 	
 	
 	
+
 }

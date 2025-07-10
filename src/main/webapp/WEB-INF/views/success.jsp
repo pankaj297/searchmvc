@@ -41,6 +41,8 @@
     <div class="info-row"><span class="info-label">Course:</span>  ${student.course}</div>
     <div class="info-row"><span class="info-label">Gender:</span>  ${student.gender}</div>
     <div class="info-row"><span class="info-label">Student Type:</span>  ${student.studentType}</div>
+   <div class="info-row"><span class="info-label">Student Address:</span>  ${student.address.street}, ${student.address.city}</div>
+   
 </div>
 
 </body>
